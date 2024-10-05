@@ -19,7 +19,7 @@ jobs:
           .flutter/bin/flutter precache
       - name: Install dependencies
         run: |
-          .fluuter/bin/flutter pub get
+          .flutter/bin/flutter pub get
       - name: Build Web
         run: |
           .flutter/bin/flutter build web
