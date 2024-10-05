@@ -16,11 +16,13 @@ jobs:
           /usr/bin/git clone https://github.com/flutter/flutter.git .flutter -b stable 
       - name: Setup Flutter
         run: |
-          echo "`pwd`/.flutter/bin/" >> $GITHUB_PATH
-          flutter precache
+          .flutter/bin/flutter precache
+      - name: Install dependencies
+        run: |
+          .fluuter/bin/flutter pub get
       - name: Build Web
         run: |
-          flutter build web
+          .flutter/bin/flutter build web
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
