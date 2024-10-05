@@ -12,11 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install Flutter SDK
-        uses: actions/checkout@v4
-        with:
-          name: 'flutter/flutter'
-          ref: 'stable'
-          path: '.flutter'
+        run: |
+          /usr/bin/git clone https://github.com/flutter/flutter.git .flutter -b stable 
       - name: Setup Flutter
         run: |
           echo "`pwd`/.flutter/bin/" >> $GITHUB_PATH
