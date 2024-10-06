@@ -1,9 +1,6 @@
 on:
   release:
     types: [ published ]
-  push:
-    branches:
-      - main
     
 jobs:
   build:
@@ -16,7 +13,7 @@ jobs:
           /usr/bin/git clone https://github.com/flutter/flutter.git .flutter -b stable 
       - name: Setup Flutter
         run: |
-          .flutter/bin/flutter precache
+          .flutter/bin/flutter precache --web
       - name: Install dependencies
         run: |
           .flutter/bin/flutter pub get
