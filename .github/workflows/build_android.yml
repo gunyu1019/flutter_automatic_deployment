@@ -22,7 +22,6 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '18'
-      - name: Install Flutter SDK
       - name: Install dependencies
         run: |
           .flutter/bin/flutter pub get
