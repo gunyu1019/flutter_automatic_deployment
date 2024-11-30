@@ -1,13 +1,12 @@
 on:
-  push:
-    branches:
-    - main
   release:
     types: [ published ]
     
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,5 +32,11 @@ jobs:
         with:
           name: application
           path: build/app/outputs/apk/release/app-release.apk
+      - name: Upload application pacakge to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            build/app/outputs/apk/release/app-release.apk
+
 
       
