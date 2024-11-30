@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    environment:
+      name: Android-apk
+      url: ${{ fromJSON(steps.deployment.outputs.assets)[0].browser_download_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,10 +36,12 @@ jobs:
           name: application
           path: build/app/outputs/apk/release/app-release.apk
       - name: Upload application pacakge to release
+        id: deployment
         uses: softprops/action-gh-release@v2
         with:
           files: |
             build/app/outputs/apk/release/app-release.apk
+            
 
 
       
