@@ -19,7 +19,7 @@ jobs:
           .flutter/bin/flutter pub get
       - name: Build Web
         run: |
-          .flutter/bin/flutter build web --release --web-renderer html --base-href /${{github.event.repository.name}}/
+          .flutter/bin/flutter build web --release --base-href /${{github.event.repository.name}}/ --wasm
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
